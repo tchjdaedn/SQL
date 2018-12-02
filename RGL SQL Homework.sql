@@ -70,10 +70,10 @@ select first_name, Last_name from actor where actor_id in
 	);
 -- 7c
 select customer.first_name, customer.last_name, customer.email from customer 
-	join address using (address_id)
-    join city using (city_id)
-    join country using (country_id)
-    where country.country = 'Canada';
+join address using (address_id)
+join city using (city_id)
+join country using (country_id)
+where country.country = 'Canada';
 -- 7d
 select title from film where film_id in
 	(
@@ -84,10 +84,10 @@ select title from film where film_id in
 	);
 -- 7e
 select film.title, count(inventory_id) from rental
-	join inventory using (inventory_id)
-    join film using (film_id)
-    group by film.title
-    order by count(inventory_id) desc;
+join inventory using (inventory_id)
+join film using (film_id)
+group by film.title
+order by count(inventory_id) desc;
 -- 7f
 select inventory.store_id, sum(payment.amount) from payment 
 join rental using(rental_id)
